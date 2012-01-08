@@ -28,7 +28,6 @@
 
 /*!
  * Changing this plugin to compatible with zepto.js
- * All my changes commented with //Amitesh
  * @contributer : Amitesh Kumar
  * @date : 7th Jan 2012
  */
@@ -137,7 +136,8 @@
 
 				$this.css('width', width);
       }catch(e){
-
+        console.log(e)
+        console.log(e.lineNumber)
       }				
 			});
 		}, bindAction: function() {
@@ -399,7 +399,9 @@
 							score = opt.targetFormat.toString().replace('{score}', score);
 						}
 
-						if ($target.is(':input')) {
+            //Amitesh : is(':input') is not working with zepto
+						//if ($target.is(':input')) {
+						if ($target.is('input')) {
 							$target.val(score);
 						} else {
 							$target.html(score);
